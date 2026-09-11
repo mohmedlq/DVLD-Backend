@@ -106,8 +106,8 @@ namespace DVLD.Application.Services
                     request.PersonId,
                     request.UserName,
                     request.Password,
-                    request.IsActive,
-                    null!);
+                    request.IsActive
+                    );
 
                 // Save
                 await _userRepo.AddAsync(user);
@@ -209,7 +209,6 @@ namespace DVLD.Application.Services
                 PersonId = user.PersonId,
                 UserName = user.UserName,
                 IsActive = user.IsActive,
-                Person = user.Person
             };
         }
     }

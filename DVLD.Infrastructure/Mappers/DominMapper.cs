@@ -39,7 +39,30 @@ public static class DomainMapper
             entity.UserName,
             entity.Password);
     }
+    public static ApplicationType MapApplicationTypeToDomain(
+    Infrastructure.Entities.ApplicationType entity)
+    {
+        return new ApplicationType(
+            entity.ApplicationTypeId,
+            entity.ApplicationTypeTitle,
+            entity.ApplicationFees);
+    }
+    public static Infrastructure.Entities.ApplicationType
+    MapApplicationTypeToEntity(
+        ApplicationType applicationType)
+    {
+        return new Infrastructure.Entities.ApplicationType
+        {
+            ApplicationTypeId =
+                applicationType.ApplicationTypeId,
 
+            ApplicationTypeTitle =
+                applicationType.ApplicationTypeTitle,
+
+            ApplicationFees =
+                applicationType.ApplicationFees
+        };
+    }
     public static User MapUserToDomain(
         Infrastructure.Entities.User entity)
     {
@@ -50,7 +73,7 @@ public static class DomainMapper
             entity.PersonId,
             entity.UserName,
             entity.Password,
-            entity.IsActive,
-            person);
+            entity.IsActive
+            );
     }
 }

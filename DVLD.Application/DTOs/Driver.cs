@@ -11,10 +11,6 @@ public class DriverDto
     public int CreatedByUserId { get; set; }
 
     public DateTime CreatedDate { get; set; }
-
-    public PersonDto? Person { get; set; }
-
-    public UserDto? CreatedByUser { get; set; }
 }
 
 public class CreateDriverRequest

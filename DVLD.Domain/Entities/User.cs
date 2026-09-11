@@ -1,5 +1,4 @@
 ﻿namespace DVLD.Domain.Entities;
-
 public class User
 {
     public int UserId { get; private set; }
@@ -20,8 +19,8 @@ public class User
         int personId,
         string userName,
         string password,
-        bool isActive,
-        Person person)
+        bool isActive
+        )
     {
         ValidateUserName(userName);
         ValidatePassword(password);
@@ -29,7 +28,6 @@ public class User
         UserName = userName;
         Password = password;
         IsActive = isActive;
-        Person = person;
     }
 
 
@@ -39,15 +37,14 @@ public class User
         int personId,
         string userName,
         string password,
-        bool isActive,
-        Person person)
+        bool isActive
+        )
     {
         UserId = userId;
         PersonId = personId;
         UserName = userName;
         Password = password;
         IsActive = isActive;
-        Person = person;
     }
 
 

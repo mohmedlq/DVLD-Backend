@@ -36,7 +36,33 @@ builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IUserService, UsersService>();
 builder.Services.AddScoped<IDriversRepository, DriversRepository>();
 builder.Services.AddScoped<IDriverService, DriversService>();
+builder.Services.AddScoped<
+    ICountriesRepository,
+    CountriesRepository>();
+builder.Services.AddScoped<
+    ICountryService,
+    CountriesService>();
+builder.Services.AddScoped<
+    IDetainedLicensesRepository,
+    DetainedLicensesRepository>();
 
+builder.Services.AddScoped<
+    IDetainedLicenseService,
+    DetainedLicensesService>();
+builder.Services.AddScoped<
+    IApplicationTypesRepository,
+    ApplicationTypesRepository>();
+
+builder.Services.AddScoped<
+    IApplicationTypeService,
+    ApplicationTypesService>();
+builder.Services.AddScoped<
+    IDvldApplicationsRepository,
+    DvldApplicationsRepository>();
+
+builder.Services.AddScoped<
+    IDvldApplicationService,
+    DvldApplicationsService>();
 // =========================
 // CORS
 // =========================

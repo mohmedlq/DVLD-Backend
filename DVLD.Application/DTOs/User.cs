@@ -21,7 +21,6 @@ namespace DVLD.Application.DTOs
         public string UserName { get; set; } = null!;
         public bool IsActive { get; set; }
         
-        public Person? Person { get;  set; } = null!;
 
     }
     public class CreateUserRequest

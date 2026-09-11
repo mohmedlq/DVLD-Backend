@@ -67,7 +67,6 @@ namespace DVLD.Infrastructure.Repositories
         {
             var entities = await _Context.Users
                 .AsNoTracking()
-                .Include(u => u.Person)
                 .ToListAsync();
 
             return entities
@@ -156,35 +155,13 @@ namespace DVLD.Infrastructure.Repositories
                     entity.PersonId,
                     entity.UserName,
                     entity.Password,
-                    entity.IsActive,
-                    MapPersonToDomain(entity.Person)
+                    entity.IsActive
                 );
 
             return User;
         }
 
-        private static Person MapPersonToDomain(
-            Infrastructure.Entities.Person entity)
-        {
-            return new Person(
-                entity.PersonId,
-                entity.NationalNo,
-                entity.FirstName,
-                entity.SecondName,
-                entity.ThirdName,
-                entity.LastName,
-                entity.DateOfBirth,
-                entity.Gender,
-                entity.Address,
-                entity.Phone,
-                entity.Email,
-                entity.CountryId,
-                entity.ImagePath,
-                entity.UserName,
-                entity.Password
-            );
-        }
-
+     
         private static Infrastructure.Entities.User MapToEntity(
                 User user)
         {

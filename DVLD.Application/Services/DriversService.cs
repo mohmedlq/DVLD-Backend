@@ -1,7 +1,6 @@
 using DVLD.Application.DTOs;
 using DVLD.Application.Interfaces;
 using DVLD.Domain.Entities;
-
 namespace DVLD.Application.Services;
 
 public class DriversService : IDriverService
@@ -52,7 +51,7 @@ public class DriversService : IDriverService
         var drivers = await _driversRepository.GetByCreatedByUserIdAsync(userId);
 
         return drivers
-            .Select(MapToDto)
+            .Select( MapToDto)
             .ToList();
     }
 
@@ -160,6 +159,7 @@ public class DriversService : IDriverService
         return await _driversRepository.CountAsync();
     }
 
+
     private static DriverDto MapToDto(Driver driver)
     {
         return new DriverDto
@@ -168,40 +168,7 @@ public class DriversService : IDriverService
             PersonId = driver.PersonId,
             CreatedByUserId = driver.CreatedByUserId,
             CreatedDate = driver.CreatedDate,
-            Person = MapPersonToDto(driver.Person),
-            CreatedByUser = MapUserToDto(driver.CreatedByUser)
         };
     }
 
-    private static PersonDto MapPersonToDto(Person person)
-    {
-        return new PersonDto
-        {
-            PersonId = person.PersonId,
-            NationalNo = person.NationalNo,
-            FirstName = person.FirstName,
-            SecondName = person.SecondName,
-            ThirdName = person.ThirdName,
-            LastName = person.LastName,
-            DateOfBirth = person.DateOfBirth,
-            Gender = person.Gender,
-            Address = person.Address,
-            Phone = person.Phone,
-            Email = person.Email,
-            CountryId = person.CountryId,
-            ImagePath = person.ImagePath,
-            UserName = person.UserName
-        };
-    }
-
-    private static UserDto MapUserToDto(User user)
-    {
-        return new UserDto
-        {
-            UserId = user.UserId,
-            PersonId = user.PersonId,
-            UserName = user.UserName,
-            IsActive = user.IsActive
-        };
-    }
 }
