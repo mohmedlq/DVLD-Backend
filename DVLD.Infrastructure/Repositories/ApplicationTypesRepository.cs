@@ -45,9 +45,12 @@ public class ApplicationTypesRepository
                 entity);
     }
 
-    public async Task<decimal> GetApplicationFees(int AppId)
+    public async Task<decimal?> GetApplicationFees(int appId)
     {
-        return GetByIdAsync(AppId).Result.ApplicationFees;
+        return await _context.Applications
+         .Where(a => a.ApplicationId == appId)
+         .Select(a => (decimal?)a.PaidFees)
+         .FirstOrDefaultAsync();
     }
 
 

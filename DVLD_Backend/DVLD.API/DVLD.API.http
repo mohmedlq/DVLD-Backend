@@ -1,6 +1,0 @@
-@DVLD.API_HostAddress = http://localhost:5047
-
-GET {{DVLD.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

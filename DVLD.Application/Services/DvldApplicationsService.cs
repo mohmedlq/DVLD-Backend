@@ -179,7 +179,7 @@ public class DvldApplicationsService
                 request.ApplicantPersonId,
                 request.ApplicationTypeId,
                 request.ApplicationStatus,
-                _applicationTypesRepository.GetApplicationFees(request.ApplicationTypeId).Result,
+                (decimal)_applicationTypesRepository.GetApplicationFees(request.ApplicationTypeId).Result,
                 request.CreatedByUserId);
 
 

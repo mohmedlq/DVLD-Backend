@@ -54,7 +54,14 @@ public class ApplicationTypesService
             .ToList();
     }
 
-
+    public async Task<decimal?> GetApplicationFees(int appId)
+    {
+        if (appId<-1)
+        {
+            return null;
+        }
+        return await _applicationTypesRepository.GetApplicationFees(appId);
+    }
     public async Task<int> CountAsync()
     {
         return await _applicationTypesRepository

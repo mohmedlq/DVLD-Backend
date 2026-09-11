@@ -43,12 +43,9 @@ public class ApplicationTypesController
 
 
     [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetById(
-        int id)
+    public async Task<IActionResult> GetById(int ApplicationTypeid)
     {
-        var applicationType =
-            await _applicationTypeService
-                .GetByIdAsync(id);
+        var applicationType = await _applicationTypeService.GetByIdAsync(ApplicationTypeid);
 
         if (applicationType == null)
             return NotFound();
@@ -56,6 +53,16 @@ public class ApplicationTypesController
         return Ok(applicationType);
     }
 
+    [HttpGet("{id:int}/fees")]
+    public async Task<IActionResult> GetFees(int id)
+    {
+        var applicationType = await _applicationTypeService.GetByIdAsync(id);
+
+        if (applicationType == null)
+            return NotFound();
+
+        return Ok(applicationType.ApplicationFees);
+    }
 
     [HttpGet("Count")]
     public async Task<IActionResult> GetCount()

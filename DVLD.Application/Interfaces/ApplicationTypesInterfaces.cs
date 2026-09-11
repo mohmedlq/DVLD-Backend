@@ -6,7 +6,7 @@ namespace DVLD.Application.Interfaces;
 public interface IApplicationTypesRepository
     : ICrud<ApplicationType>
 {
-     Task<decimal> GetApplicationFees(int AppId);
+     Task<decimal?> GetApplicationFees(int AppId);
 
     Task<bool> ApplicationTypeTitleExistsAsync(
         string applicationTypeTitle);
